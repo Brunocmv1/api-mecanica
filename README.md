@@ -1,4 +1,4 @@
-# API-Mecanica
+# 🧑‍🔧 API Mecânica - Backend
 
 Um projeto de API RESTful para o gerenciamento de uma oficina mecânica.
 
