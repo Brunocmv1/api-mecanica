@@ -14,6 +14,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Gerente {
+  id        Int       @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  senha     String
+
+  @@map("gerente")
+}
+
 model Cliente {
   id        Int       @id @default(autoincrement())
   cpf       String    @unique

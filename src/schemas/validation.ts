@@ -1,5 +1,36 @@
 import { z } from "zod";
 
+export const createGerenteSchema = z.object({
+  nome: z
+    .string()
+    .min(3, "Nome deve ter pelo menos 3 caracteres")
+    .max(100, "Nome deve ter no máximo 100 caracteres"),
+
+  email: z
+    .string()
+    .email({ message: "Email deve ter um formato válido" })
+    .max(255, "Email deve ter no máximo 255 caracteres"),
+
+  senha: z
+    .string()
+    .min(6, "Senha deve ter pelo menos 6 caracteres")
+    .max(100, "Senha deve ter no máximo 100 caracteres"),
+});
+
+export const loginGerenteSchema = z.object({
+  email: z
+    .string()
+    .email({ message: "Email deve ter um formato válido" })
+    .max(255, "Email deve ter no máximo 255 caracteres"),
+
+  senha: z
+    .string()
+    .min(6, "Senha deve ter pelo menos 6 caracteres")
+    .max(100, "Senha deve ter no máximo 100 caracteres"),
+});
+
+export const updateGerenteSchema = createGerenteSchema.partial();
+
 export const createClienteSchema = z.object({
   cpf: z
     .string()
@@ -81,6 +112,8 @@ export const idParamSchema = z.object({
     .refine((num) => num > 0, "ID deve ser positivo"),
 });
 
+export type CreateGerenteData = z.infer<typeof createGerenteSchema>;
+export type UpdateGerenteData = z.infer<typeof updateGerenteSchema>;
 export type CreateClienteData = z.infer<typeof createClienteSchema>;
 export type UpdateClienteData = z.infer<typeof updateClienteSchema>;
 export type CreateVeiculoData = z.infer<typeof createVeiculoSchema>;

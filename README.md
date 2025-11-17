@@ -72,6 +72,14 @@ Siga os passos abaixo para executar o projeto em seu ambiente local.
 **Swagger UI**
 * Acesse a documentação interativa em: http://localhost:3000/api-docs
 
+#### 👤 Gerentes
+* `POST /gerentes` - Cria um novo gerente.
+* `GET /gerentes` - Lista todos os gerentes.
+* `GET /gerentes/:id` - Obtém um gerente pelo ID.
+* `PUT /gerentes/:id` - Atualiza um gerente.
+* `DELETE /gerentes/:id` - Remove um gerente.
+* `POST /login` - .
+
 #### 👥 Clientes
 * `POST /clientes` - Cria um novo cliente.
 * `GET /clientes` - Lista todos os clientes.
