@@ -1,84 +1,130 @@
-# 🧑‍🔧 API Mecânica - Backend
+# 🧑‍🔧 API Mecânica
 
-Um projeto de API RESTful para o gerenciamento de uma oficina mecânica.
+API RESTful para o gerenciamento de clientes, veículos e agendamentos de uma oficina mecânica.
 
-## Descrição
+---
 
-Esta API foi desenvolvida para facilitar o gerenciamento de clientes, veículos e agendamentos de uma oficina mecânica. O sistema permite o cadastro, consulta, atualização e exclusão de informações essenciais para o dia a dia do negócio.
+## 📝 Descrição
 
-## Tecnologias Utilizadas
+Este projeto fornece os endpoints necessários para:
 
-* **Node.js + + TypeScript**
-* **Express.js**
-* **Prisma** (ORM)
-* **PostgreSQL** (Banco de Dados)
-* **Swagger** (Documentação da API)
-* **Zod**(Validação de esquemas)
+✔ Cadastrar, listar, atualizar e remover clientes  
+✔ Cadastrar e gerenciar veículos associados  
+✔ Criar e controlar agendamentos  
+✔ Autenticação com JWT e segurança com bcrypt  
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+### 📌 Back-end (`/api`)
+- **Node.js + TypeScript**
+- **Express.js**
+- **Prisma ORM**
+- **PostgreSQL**
+- **Swagger** (documentação)
+- **Zod** (validações)
+- **Bcryptjs**
+
+### 🎨 Front-end (`/frontend`)
+- **React + TypeScript**
+- **Vite**
+- **Material UI (MUI)** — Estilo Glassmorphism
+- **React Router**
+- **Axios** (requisições à API)
+
+---
 
 ## 🚀 Como Executar a Aplicação
 
-Siga os passos abaixo para executar o projeto em seu ambiente local.
+### 📋 Pré-requisitos
+- Node.js 18+
+- NPM ou Yarn
+- Banco PostgreSQL rodando
 
-**Pré-requisitos:**
-* Node.js (versão 18 ou superior)
-* NPM ou Yarn
-* Um banco do PostgreSQL rodando
+---
 
-**Passos:**
+### 1️⃣ Clone o repositório
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone https://github.com/Brunocmv1/api-mecanica.git
-    ```
+```bash
+git clone https://github.com/Brunocmv1/api-mecanica.git
+cd api-mecanica
+```
 
-2.  **Acesse o diretório do projeto:**
-    ```bash
-    cd api-mecanica
-    ```
+### 2️⃣ Configure as variáveis de ambiente:
+* Altere o nome do `.env.example` para `.env` 
+* Mude a linha para seu usuário, senha e nome do banco 
+**OU**
+* Crie um arquivo chamado `.env` na raiz do projeto.
+* Copie o conteúdo abaixo para dentro do arquivo `.env` e substitua pelos seus dados:
 
-3.  **Instale as dependências:**
-    ```bash
-    npm install
-    ```
 
-4.  **Configure as variáveis de ambiente:**
-    * Altere o nome do `.env.example` para `.env`
-    * Mude a linha para seu usuário, senha e nome do banco
-
-    **OU**
-    
-    * Crie um arquivo chamado `.env` na raiz do projeto.
-    * Copie o conteúdo abaixo para dentro do arquivo `.env` e substitua pelos seus dados:
-
-    ```env
+  ```env
     # URL de conexão com o banco de dados PostgreSQL
     DATABASE_URL="postgresql://SEU_USUARIO:SUA_SENHA@localhost:5432/NOME_DO_BANCO"
-    ```
+  ```
+### 3️⃣ Configure o Backend
 
-5.  **Execute as migrações do banco de dados com o Prisma:**
-    ```bash
+  ```bash
+    cd api
+
+    # Instale dependências
+    npm install
+
+    # Gere o Prisma Client
     npx prisma generate
 
+    # Execute migrações
     npx prisma migrate dev
-    ```
 
-6.  **Inicie a aplicação:**
-    ```bash
+    # Povoamento do Banco (cria o Gerente Admin)
+    npx ts-node src/scripts/seed.ts
+  ```
+**Inicie o servidor:**
+
+  ```bash
     npm run dev
-    ```
+  ```
+* Servidor rodando em: http://localhost:3333
+* Swagger disponível em: http://localhost:3333/api-docs
+
+    
+### 4️⃣ Configure o Frontend
+Abra um novo terminal (mantendo a API rodando) e volte para a raiz do projeto.
+
+Acesse a pasta do Frontend:
+
+   ```bash
+    cd frontend
+   ```
+   ```bash
+    # Instale dependências
+    npm install
+
+    # Inicie o servidor de desenvolvimento
+    npm run dev
+   ```
+* Aplicação disponível em: http://localhost:5173/
 
 ## 📚Endpoints da API
 
-**Swagger UI**
-* Acesse a documentação interativa em: http://localhost:3000/api-docs
+### 🔐 Autenticação
+   ```bash
+    POST /login
+    Content-Type: application/json
 
-#### 👤 Gerentes
+    {
+     "email": "admin@mecanica.com",
+     "senha": "123456"
+    }
+   ```
+
+#### 👥 Gerentes
 * `POST /gerentes` - Cria um novo gerente.
 * `GET /gerentes` - Lista todos os gerentes.
 * `GET /gerentes/:id` - Obtém um gerente pelo ID.
 * `PUT /gerentes/:id` - Atualiza um gerente.
 * `DELETE /gerentes/:id` - Remove um gerente.
-* `POST /login` - .
 
 #### 👥 Clientes
 * `POST /clientes` - Cria um novo cliente.
@@ -103,9 +149,19 @@ Siga os passos abaixo para executar o projeto em seu ambiente local.
 * `PUT /agendamentos/:id` - Atualiza um agendamento.
 * `DELETE /agendamentos/:id` - Remove um agendamento.
 
-## Autor
+## 📖 Swagger UI
+Acesse a documentação interativa em:
+  ```bash
+    http://localhost:3333/api-docs
+  ```
+## 👨‍💻 Autores
 
 **Bruno Cavalcante**
 
 * **LinkedIn**: [https://www.linkedin.com/in/brunocavalcantemvf]
 * **GitHub**: [https://github.com/Brunocmv1]
+
+**Matheus Calixto**
+
+* **LinkedIn**: [https://www.linkedin.com/in/matheus-calixto-/]
+* **GitHub**: [https://github.com/MatCalixto]
