@@ -1,5 +1,5 @@
 import prisma from "../database/prisma";
-import type { Agendamento } from "../generated/prisma";
+import type { Agendamento } from "@prisma/client";
 
 export type AgendamentoCreateData = { motivo: string; descricao?: string; veiculoId: number;};
 type AgendamentoUpdateData = Partial<Omit<Agendamento, "id" | "createdAt" | "updatedAt">>;

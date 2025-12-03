@@ -1,5 +1,5 @@
 import prisma from "../database/prisma";
-import { Cliente } from "../generated/prisma";
+import { Cliente } from "@prisma/client";
 
 export type ClienteCreateData = Omit<Cliente, "id">;
 export type ClienteUpdateData = Partial<Omit<Cliente, "id">>;

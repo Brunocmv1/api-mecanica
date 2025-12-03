@@ -1,5 +1,5 @@
 import  prisma  from "../database/prisma";
-import { Gerente } from "../generated/prisma";
+import { Gerente } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
 type GerenteCreateData = Omit<Gerente, "id">;
