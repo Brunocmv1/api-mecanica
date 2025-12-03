@@ -42,8 +42,6 @@ const router = Router();
  *         description: Erro interno do servidor
  */
 
-//JWT TOKEN
-
 router.post("/login", validateBody(loginGerenteSchema), getGerenteByLogin);
 
 export default router;
