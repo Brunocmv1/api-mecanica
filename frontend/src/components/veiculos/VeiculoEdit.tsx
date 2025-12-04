@@ -39,7 +39,7 @@ export const VeiculoEdit = ({open, veiculo, onClose, onSave,}: EditarVeiculoModa
   const [clientes, setClientes] = useState<Cliente[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [salvando, setSalvando] = useState(false);
-  const [loadingClientes, setLoadingClientes] = useState(true);
+  const [loadingClientes] = useState(true);
   const [clienteSelecionado, setClienteSelecionado] = useState<Cliente | null>(null);
 
   useEffect(() => {
