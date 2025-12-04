@@ -28,10 +28,10 @@ const clientes = [
 ];
 
 const veiculos = [
-  { modelo: "VW Gol 1.6", placa: "GOL1234", ano: 2018, chassi: "9BW000...", donoIndex: 0 },
-  { modelo: "VW Virtus Hl", placa: "VIR7U51", ano: 2024, chassi: "9BW111...", donoIndex: 0 },
-  { modelo: "VW Tera OT", placa: "TER4A36", ano: 2026, chassi: "9BW222...", donoIndex: 1 },
-  { modelo: "VW Jetta GLI", placa: "JET7A61", ano: 2026, chassi: "9BW333...", donoIndex: 2 },
+  { modelo: "VW Gol 1.6", placa: "GOL1234", ano: 2018, chassi: "9BW000", donoIndex: 0 },
+  { modelo: "VW Virtus Hl", placa: "VIR7U51", ano: 2024, chassi: "9BW111", donoIndex: 0 },
+  { modelo: "VW Tera OT", placa: "TER4A36", ano: 2026, chassi: "9BW222", donoIndex: 1 },
+  { modelo: "VW Jetta GLI", placa: "JET7A61", ano: 2026, chassi: "9BW333", donoIndex: 2 },
 ];
 
 async function main() {
